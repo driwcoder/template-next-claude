@@ -4,6 +4,12 @@
 
 Opinionated Next.js 16 starter. Fluid, optimistic UI is the point; keep it that way.
 
+## Idioma, data/hora e encoding
+
+- **Responder sempre em português do Brasil (pt-BR)**: explicações, resumos, mensagens de commit e descrições de PR. Código e identificadores ficam em inglês.
+- **Datas/horas**: exibir `dd/MM/aaaa` + `HH:mm` (24h), fuso `America/Sao_Paulo`. Em código, formatar com `Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo" })` e persistir em UTC (`timestamptz`); nunca comparar datas como string.
+- **Encoding**: arquivos e respostas em UTF-8 sem BOM; no PowerShell gravar com `-Encoding utf8`. Não usar aspas/travessões tipográficos em código, JSON, `.env`, shell ou nomes de arquivo. Nomes de arquivo, branch, chaves de env e identificadores: só ASCII, sem espaços nem acentos.
+
 ## Stack
 
 - **Next.js 16** App Router, RSC, Server Actions, Turbopack (default), React Compiler (`reactCompiler: true`).

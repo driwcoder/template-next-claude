@@ -26,6 +26,7 @@ Opinionated Next.js 16 starter. Fluid, optimistic UI is the point; keep it that 
 - Read env only through `@/env` (`src/env.ts`), never `process.env` directly.
 - Optimistic mutation pattern: server component reads → client island holds `useOptimistic` list/reducer → Server Action inside `startTransition` → `revalidatePath` reconciles. See `src/features/todos`.
 - Server Actions are public POST endpoints. Validate args; add an auth check when data isn't public (snippet in `src/features/todos/actions.ts`).
+- Auth: `getSession()` from `src/features/auth/session.ts` in RSC / route handlers; `useSession()` / `authClient` (no `baseURL` — same-origin) on the client. Protect a route by `redirect("/login")` when `getSession()` is null (see `src/app/dashboard/page.tsx`).
 - Match the style of the file you're in. `src/components/ui/**` is excluded from lint — don't reformat it.
 
 ## Next.js

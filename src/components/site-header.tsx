@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AuthNav } from "@/features/auth/components/auth-nav";
 
 export function SiteHeader() {
   return (
@@ -15,6 +16,7 @@ export function SiteHeader() {
           >
             Demo
           </Link>
+          <AuthNav />
           <ThemeToggle />
         </nav>
       </div>

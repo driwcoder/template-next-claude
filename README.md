@@ -51,10 +51,14 @@ Open <http://localhost:3000>. The `/demo` route shows optimistic add / toggle / 
 ```
 src/
   app/               routes (App Router)
+    (auth)/login, (auth)/signup   email + password screens
+    dashboard/       protected route (redirects to /login without a session)
+    demo/            optimistic-UI demo
     api/auth/[...all] better-auth handler
   components/         app-wide components
     ui/               shadcn primitives (owned code)
   features/<name>/    vertical slices: repo.ts · actions.ts · components/
+    auth/             session helper + login/signup/nav components
   lib/
     auth.ts  auth-client.ts
     db/      index.ts · schema.ts
@@ -62,6 +66,10 @@ src/
   env.ts             validated environment
 .claude/             project settings + format-on-write hook
 ```
+
+Auth works on a clean clone (better-auth memory adapter). Signup at `/signup`,
+then `/dashboard` is gated by `getSession()` in `src/features/auth/session.ts`.
+Set `DATABASE_URL` to persist users in Postgres instead.
 
 ## Conventions
 

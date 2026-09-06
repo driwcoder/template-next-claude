@@ -71,3 +71,11 @@ src/
 - `src/components/ui/**` is lint-excluded; don't reformat it.
 
 See [`CLAUDE.md`](./CLAUDE.md) for the agent-facing version.
+
+## Requirements
+
+Node >= 22 (`.nvmrc` pins 22) · pnpm >= 11.
+
+## License
+
+[MIT](./LICENSE) © driwcoder

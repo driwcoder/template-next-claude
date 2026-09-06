@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import type { ReactNode } from "react";
 import { Providers } from "@/components/providers";
 import "./globals.css";
 
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "Opinionated Next.js starter: App Router, RSC, optimistic UI, shadcn/ui, Drizzle, better-auth.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html
       lang="en"
